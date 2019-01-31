@@ -13,6 +13,13 @@ namespace Bulldozer
             var man = new Man();
             var kart = new Kart();
             var alien = new Alien();
+
+            var worker = new FactoryWorker();
+            worker.Count(4);
+            worker.Count(5);
+            worker.Count(4.5f);
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
     }
 
@@ -52,6 +59,40 @@ namespace Bulldozer
 
             }
         }
+
+    public class FactoryWorker
+    {
+        public FactoryWorker()
+        {
+
+        }
+
+        public void Count(int number)
+        {
+            if (Total == null)
+            {
+                Total = 0;
+            }
+
+            Total = Total + Convert.ToSingle(number);
+            Console.WriteLine(Total.ToString());
+        }
+
+        public void Count(float number)
+        {
+            Total = Total + number;
+            Console.WriteLine(Total.ToString());
+        }
+
+        public void Count (int num1, float num2, double num3)
+        {
+            //code to add all three
+            //add to Total
+        }
+
+
+        public float Total { get; set; }
+    }
 
     public class BullDozer
     {
